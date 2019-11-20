@@ -41,3 +41,5 @@ script:
   - git add .
   - git commit -m '[skip ci] enable lfs'
   - git push https://mehulagg:$PAT_GITHUB_MEHULAGG@github.com/mehulagg/UnsplashImageFull.git HEAD:master
+  - git push https://Wallpapers:$PAT_AZURE_JONYGUPTA80@dev.azure.com/Wallpapers/UnsplashImages/_git/UnsplashImageFull HEAD:master
+

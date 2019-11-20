@@ -10,12 +10,13 @@ jobs:
             sudo apt-get install git-lfs
       - run:
           command: |
-            git clone --branch=master https://Wallpapers@dev.azure.com/Wallpapers/UnsplashImages/_git/Dopewalls dopewalls
-            cd dopewalls     
+            git clone --branch=master https://Wallpapers@dev.azure.com/Wallpapers/UnsplashImages/_git/Dopewalls
+            cd Dopewalls 
+            git checkout master
       - run:
           command: |
-            # sudo python3 -m pip install --upgrade pip
-            # sudo pip3 install -r requirements.txt
+                  # sudo python3 -m pip install --upgrade pip
+                  # sudo pip3 install -r requirements.txt
             df -h
             git lfs install
             git lfs track "*.jpg"

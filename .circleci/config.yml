@@ -9,7 +9,9 @@ jobs:
       #      curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
       #      sudo apt-get install git-lfs
       - run:
-          command: git clone --depth=10 --branch=master https://Wallpapers@dev.azure.com/Wallpapers/UnsplashImages/_git/UnsplashImageFull
+          command: |
+            git clone --depth=10 --branch=master https://Wallpapers@dev.azure.com/Wallpapers/UnsplashImages/_git/UnsplashImageFull UnsplashImageFull
+            cd UnsplashImageFull      
       - run:
           command: |
             sudo python3 -m pip install --upgrade pip

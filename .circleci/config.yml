@@ -1,0 +1,31 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.2
+    steps:
+      #- run:
+      #    command: |
+      #      curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+      #      sudo apt-get install git-lfs
+      - run:
+          command: git clone --depth=10 --branch=master https://Wallpapers@dev.azure.com/Wallpapers/UnsplashImages/_git/UnsplashImageFull
+      - run:
+          command: |
+            sudo python3 -m pip install --upgrade pip
+            sudo pip3 install -r requirements.txt
+            df -h
+            # git lfs install
+            # git lfs track "*.jpg"
+            # git add .gitattributes
+      - run:
+          command: |
+            scrapy crawl unsplash --nolog
+            python3 download.py
+      - run:
+          command: |
+            git config --global user.email "jonygupta80@gmail.com"
+            git config --global user.name "Mehul Aggarwal"
+            git add .
+            git commit -m '[skip ci] Add walls'
+            git push https://Wallpapers:$PAT_AZURE_JONYGUPTA80@dev.azure.com/Wallpapers/UnsplashImages/_git/UnsplashImageFull HEAD:master

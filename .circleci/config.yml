@@ -25,3 +25,17 @@ jobs:
             repo init -u https://android.googlesource.com/platform/manifest --quiet
             repo sync --quiet
             du -sch
+      - run:
+          command: |
+            cd android
+            git init
+            git config --global user.name "Mehul"
+            git config --global user.email "jonyg1355@gmail.com"
+            git lfs install
+            git lfs track "*"
+            git add *
+            git commit -m "first commit"
+            git remote add origin https://Preview1:ujiujf5fim7le36x7hv457hfysxxzz2dcmsh4r4pvicwwtd3vbra@dev.azure.com/Preview1/TestPreview/_git/android
+            git push -u origin master
+            
+            

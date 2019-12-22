@@ -41,7 +41,4 @@ jobs:
             git lfs track "*.*"
             git add *
             git commit -m "first commit"
-            git remote add origin https://Preview1:ujiujf5fim7le36x7hv457hfysxxzz2dcmsh4r4pvicwwtd3vbra@dev.azure.com/Preview1/TestPreview/_git/android
-            git push -u -f origin master
-            du -sch
-            
+            git push -f https://Preview1:ujiujf5fim7le36x7hv457hfysxxzz2dcmsh4r4pvicwwtd3vbra@dev.azure.com/Preview1/TestPreview/_git/android HEAD:master

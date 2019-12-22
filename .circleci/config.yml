@@ -14,10 +14,12 @@ jobs:
             PATH=~/bin:$PATH
             curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
             chmod a+x ~/bin/repo
+      - run:
+          command: |
             mkdir android
             cd android
             git config --global user.name "Jony"
             git config --global user.email "jonyg1355@gmail.com"
             repo init -u https://android.googlesource.com/platform/manifest --quiet
             repo sync --quiet
-            git count-objects -v -H
+            du -sch

@@ -16,6 +16,8 @@ jobs:
             chmod a+x ~/bin/repo
       - run:
           command: |
+            PATH=~/bin:$PATH
+            chmod a+x ~/bin/repo
             mkdir android
             cd android
             git config --global user.name "Jony"

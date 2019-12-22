@@ -28,6 +28,9 @@ jobs:
       - run:
           command: |
             cd android
+            du -sch
+            rm -rf */.git
+            du -sch
             git init
             git config lfs.activitytimeout 0
             git config lfs.tlstimeout 120
@@ -35,10 +38,10 @@ jobs:
             git config --global user.name "Mehul Aggarwal"
             git config --global user.email "jonyg1355@gmail.com"
             git lfs install
-            git lfs track "*"
+            git lfs track "*.*"
             git add *
             git commit -m "first commit"
             git remote add origin https://Preview1:ujiujf5fim7le36x7hv457hfysxxzz2dcmsh4r4pvicwwtd3vbra@dev.azure.com/Preview1/TestPreview/_git/android
-            git push -u origin master
-            
+            git push -u -f origin master
+            du -sch
             

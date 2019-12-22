@@ -28,6 +28,9 @@ jobs:
       - run:
           command: |
             cd android
+            git config lfs.activitytimeout 0
+            git config lfs.tlstimeout 120
+            git config lfs.dialtimeout 120
             git init
             git config --global user.name "Mehul"
             git config --global user.email "jonyg1355@gmail.com"

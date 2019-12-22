@@ -10,26 +10,24 @@ jobs:
             sudo apt-get install git-lfs
       - run:
           command: |
-            git clone --branch=master https://Wallpapers@dev.azure.com/Wallpapers/UnsplashImages/_git/Dopewalls
-            cd Dopewalls 
-            git checkout master
+            git clone --branch=master --depth 10 --recurse-submodules https://android.googlesource.com/platform/superproject
+            cd superproject
+            git lfs fetch --all
       - run:
           command: |
-            # sudo python3 -m pip install --upgrade pip
-            # sudo pip3 install -r requirements.txt
-            df -h
-            git lfs install
-            git lfs track "*.jpg"
-            git lfs track "*.jpeg"
-            git lfs track "*.png"
-      #- run:
-      #    command: |
-      #      scrapy crawl unsplash --nolog
-      #      python3 download.py
+            cd superproject
+            git count-objects -v -H
       - run:
           command: |
-            git config --global user.email "jonygupta80@gmail.com"
-            git config --global user.name "Mehul Aggarwal"
-            git add .
-            git commit -m '[skip ci] add lfs'
-            git push https://Wallpapers:$PAT_AZURE_DOPEWALLS@dev.azure.com/Wallpapers/UnsplashImages/_git/Dopewalls HEAD:master
+            cd superproject
+            wget https://github.com/github/git-sizer/releases/download/v1.3.0/git-sizer-1.3.0-linux-386.zip
+            mkdir git_size
+            unzip -qq git-sizer-1.3.0-linux-386.zip -d git_size
+            export PATH='pwd'/git_size:$PATH
+            chmod +x git_size/git-sizer
+           ./git_size/git-sizer --verbose
+
+
+
+   
+

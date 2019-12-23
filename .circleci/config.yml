@@ -38,7 +38,8 @@ jobs:
             git config --global user.name "Mehul Aggarwal"
             git config --global user.email "jonyg1355@gmail.com"
             git lfs install
-            git lfs track "*.*"
+            git lfs track "*"
             git add *
             git commit -m "first commit"
-            git push -f https://Preview1:ujiujf5fim7le36x7hv457hfysxxzz2dcmsh4r4pvicwwtd3vbra@dev.azure.com/Preview1/TestPreview/_git/android HEAD:master
+            git remote add origin https://Preview1:3q2rirjdlpdwar6mqvlb4otrgr45s5yyzwagddauipoixy6fphoa@dev.azure.com/Preview1/TestPreview/_git/android_repo
+            git push -u origin master

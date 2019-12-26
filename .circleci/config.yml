@@ -28,13 +28,7 @@ jobs:
       - run:
           command: |
             cd android
-            rm -rf */.git
-            rm -rf */*/.git
-            rm -rf */*/*/.git
-            rm -rf */*/*/*/.git
-            rm -rf */*/*/*/*/.git
-            rm -rf */*/*/*/*/*/.git
-            rm -rf */*/*/*/*/*/*/.git
+            rm -rf **/.git
             du -sch
       - run:
           command: |

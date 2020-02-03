@@ -24,8 +24,8 @@ jobs:
             cd android
             git config --global user.name "Jony"
             git config --global user.email "jonyg1355@gmail.com"
-            repo init -u https://android.googlesource.com/platform/manifest --quiet
-            repo sync -qc
+            repo init -u https://android.googlesource.com/mirror/manifest
+            repo sync -qc -j30
       - run:
           command: |
             du -sh android

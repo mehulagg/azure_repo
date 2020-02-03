@@ -23,28 +23,30 @@ jobs:
             git config --global user.name "Jony"
             git config --global user.email "jonyg1355@gmail.com"
             repo init -u https://android.googlesource.com/platform/manifest --quiet
-            repo sync --quiet
-            du -sch
+            repo sync -qc
       - run:
           command: |
-            cd android
-            rm -rf **/.git
-            du -sch
-      - run:
-          command: |
-            cd android
-            git init
-            git config lfs.activitytimeout 0
-            git config lfs.tlstimeout 120
-            git config lfs.dialtimeout 120
-            git config --global user.name "Mehul Aggarwal"
-            git config --global user.email "jonyg1355@gmail.com"
-            git lfs install
-            git lfs track "*"
-            git add *
-            git commit -m "first commit"
-      - run:
-          command: |
-            cd android
-            git remote add origin https://Preview1:t2d4w6vcd745o4o7c4rchmosrx6b23y6u67m2oiyhwlw3x7xhgsa@dev.azure.com/Preview1/TestPreview/_git/android
-            git push -u origin --all
+            du -sh android
+#      - run:
+#          command: |
+#            cd android
+#            rm -rf **/.git
+#            du -sch
+#      - run:
+#          command: |
+#            cd android
+#            git init
+#            git config lfs.activitytimeout 0
+#            git config lfs.tlstimeout 120
+#            git config lfs.dialtimeout 120
+#            git config --global user.name "Mehul Aggarwal"
+#            git config --global user.email "jonyg1355@gmail.com"
+#            git lfs install
+#            git lfs track "*"
+#            git add *
+#            git commit -m "first commit"
+#      - run:
+#          command: |
+#            cd android
+#            git remote add origin https://Preview1:t2d4w6vcd745o4o7c4rchmosrx6b23y6u67m2oiyhwlw3x7xhgsa@dev.azure.com/Preview1/TestPreview/_git/android
+#            git push -u origin --all

@@ -5,6 +5,8 @@ jobs:
       - image: circleci/python:3.7.2
     steps:
       - run:
+          command: nproc --all
+      - run:
           command: |
             curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
             sudo apt-get install git-lfs

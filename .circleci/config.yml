@@ -24,16 +24,25 @@ jobs:
             cd android
             git config --global user.name "Jony"
             git config --global user.email "jonyg1355@gmail.com"
-            repo init -u https://android.googlesource.com/mirror/manifest
+            repo init -u https://android.googlesource.com/mirror/manifest --mirror
             repo sync -j30 -q -c
       - run:
           command: |
             du -sh android
+      - store_artifacts:
+          path: android
+          destination: aospMirror
       - run:
           command: |
             cd android
             rm -rf .repo
             du -sh
+      - run:
+          name: Compress Artifacts
+          command: tar -cvf aospFiles.tar android
+      - store_artifacts:
+          path: aospFiles.tar
+          destination: AospFilesOnly
 #      - run:
 #          command: |
 #            cd android

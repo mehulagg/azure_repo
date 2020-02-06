@@ -20,32 +20,32 @@ jobs:
           command: |
             PATH=~/bin:$PATH
             chmod a+x ~/bin/repo
-            mkdir android
-            cd android
+            mkdir chromiumos
+            cd chromiumos
             git config --global user.name "Jony"
             git config --global user.email "jonyg1355@gmail.com"
-            repo init -u https://android.googlesource.com/mirror/manifest
-            repo sync -qc
+            repo init -u https://chromium.googlesource.com/chromiumos/manifest
+            repo sync -q
       - run:
           command: |
-            du -sh android
+            du -sh chromiumos
       - run:
           name: Compress Artifacts
-          command: tar -cvf aospMirror.tar android
+          command: tar -cvf chromiumosAll.tar chromiumos
       - store_artifacts:
-          path: aospMirror.tar
-          destination: aospMirror
+          path: chromiumosAll.tar
+          destination: chromiumosAll
       - run:
           command: |
-            cd android
+            cd chromiumos
             rm -rf .repo
             du -sh
       - run:
           name: Compress Artifacts
-          command: tar -cvf aospFiles.tar android
+          command: tar -cvf chromiumosFiles.tar chromiumos
       - store_artifacts:
-          path: aospFiles.tar
-          destination: AospFilesOnly
+          path: chromiumosFiles.tar
+          destination: chromiumosFilesOnly
 #      - run:
 #          command: |
 #            cd android
